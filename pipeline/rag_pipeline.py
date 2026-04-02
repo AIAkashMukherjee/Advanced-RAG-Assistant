@@ -84,7 +84,9 @@ class AdvancedRAGPipeline:
         reordered = self.long_context_reorder.reorder(reranked)
 
         # 4. Generate
-        context = "\n\n".join([doc.page_content for doc in reordered])
-        answer = self.llm.generate(query, context)
+        # context = "\n\n".join([doc.page_content for doc in reordered])
+        # answer = self.llm.generate(query, context)
+
+        answer = self.llm.generate(query, reordered)
 
         return {"answer": answer, "sources": reordered}
