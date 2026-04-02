@@ -1,117 +1,3 @@
-# import streamlit as st
-# from pipeline.rag_pipeline import AdvancedRAGPipeline
-# from config import Config
-
-
-# # ---------------------------
-# # Page Config
-# # ---------------------------
-# st.set_page_config(
-#     page_title="Advanced RAG Chat",
-#     page_icon="🤖",
-#     layout="wide"
-# )
-
-
-# # ---------------------------
-# # Cache Pipeline
-# # ---------------------------
-# @st.cache_resource
-# def load_pipeline():
-#     config = Config()
-#     pipeline = AdvancedRAGPipeline(config=config)
-#     return pipeline
-
-
-# pipeline = load_pipeline()
-
-# if "pipeline" not in st.session_state:
-#     config = Config()
-#     st.session_state.pipeline = AdvancedRAGPipeline(config)
-
-# pipeline = st.session_state.pipeline
-
-# if "ingested" not in st.session_state:
-#     st.session_state.ingested = False
-
-# uploaded_files = st.file_uploader(
-#     "Upload Documents",
-#     accept_multiple_files=True
-# )
-
-
-# if uploaded_files:
-#     with st.spinner("Processing documents..."):
-#         pipeline.ingest_uploaded_files(uploaded_files)
-
-#     st.session_state.ingested = True    
-#     st.success("Documents processed successfully!")
-
-
-# # ---------------------------
-# # UI
-# # ---------------------------
-# st.title("Advanced RAG Chat")
-# st.markdown("Hybrid + Parent + Rerank + Reorder RAG Pipeline")
-
-
-# # ---------------------------
-# # Chat History
-# # ---------------------------
-# if "messages" not in st.session_state:
-#     st.session_state.messages = []
-
-
-# # Display chat history
-# for message in st.session_state.messages:
-#     with st.chat_message(message["role"]):
-#         st.markdown(message["content"])
-
-
-# # ---------------------------
-# # Input
-# # ---------------------------
-# query = st.chat_input("Ask a question...")
-
-
-# if query:
-
-#     if not uploaded_files:
-#         st.warning("Upload documents first")
-#         st.stop()
-
-#     # User message
-#     st.session_state.messages.append({
-#         "role": "user",
-#         "content": query
-#     })
-
-#     with st.chat_message("user"):
-#         st.markdown(query)
-
-#     # Assistant response
-#     with st.chat_message("assistant"):
-#         with st.spinner("Thinking..."):
-
-#             result = pipeline.run(query)
-
-#             answer = result["answer"]
-#             sources = result["sources"]
-
-#             st.markdown(answer)
-
-#             # Sources
-#             with st.expander("Sources"):
-#                 for i, doc in enumerate(sources):
-#                     st.markdown(f"**Source {i+1}**")
-#                     st.write(doc.page_content[:500])
-#                     st.divider()
-
-#     st.session_state.messages.append({
-#         "role": "assistant",
-#         "content": answer
-#     })
-
 
 import streamlit as st
 import tempfile
@@ -126,7 +12,7 @@ from config import Config
 # Page Config
 # ---------------------------
 st.set_page_config(
-    page_title="Advanced RAG Chat",
+    page_title="Research Chat",
     page_icon="🤖",
     layout="wide"
 )
@@ -209,7 +95,7 @@ if uploaded_files:
 # ---------------------------
 # Main UI
 # ---------------------------
-st.title("Advanced RAG Chat")
+st.title("Research Chat")
 st.markdown("**Hybrid • Parent-Child • Reranker • Long Context Reorder**")
 
 # Show warning if no documents ingested
