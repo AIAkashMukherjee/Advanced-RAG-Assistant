@@ -1,4 +1,4 @@
 .env
 /my_env
 /__pycache__
-/chroma_db
+/chroma_db.DS_Store
