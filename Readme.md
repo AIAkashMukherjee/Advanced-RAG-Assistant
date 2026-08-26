@@ -33,12 +33,9 @@ Advanced RAG Pipeline
 ├── Merger Retriever
 ├── Reranker (FlashRank)
 ├── Long Context Reorder
-└── LLM (OpenAI / Groq / Ollama / etc.)
-
+└── LLM (OpenAI / Groq  etc.)
 
 ## 🚀 Installation
-
-
 
 ### 1. Clone the repository
 
@@ -50,11 +47,10 @@ git clone https://github.com/AIAkashMukherjee/Advanced-RAG-Assistant.git
 cd Advanced-RAG-Assistant
 ```
 
-
 ### 2. Create virtual environment
 
 > python -m venv my_env
-> source my_env/bin/activate  
+> source my_env/bin/activate
 > my_env\Scripts\activate
 
 ### 3. Install dependencies

@@ -2,12 +2,12 @@ from typing import List
 from langchain_groq import ChatGroq
 from langchain_core.documents import Document
 from langchain_core.messages import SystemMessage, HumanMessage
-
+from config import Config
 
 class LLMModel:
     def __init__(
         self,
-        model_name: str = "llama-3.3-70b-versatile",
+        model_name: str = Config.LLM_MODEL,
         temperature: float = 0.0,
     ):
         self.llm = ChatGroq(
